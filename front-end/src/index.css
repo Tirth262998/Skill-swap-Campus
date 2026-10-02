@@ -1,0 +1,62 @@
+:root {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #24354e;
+  background: #fffefa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+
+  --navy: #1c2f4b;
+  --blue: #315f98;
+  --blue-dark: #254d7f;
+  --blue-wash: #f3f6f9;
+  --paper: #fffefa;
+  --line: #e8e9e6;
+  --ink-soft: #68758b;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'Segoe UI', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #e1ad4f;
+  outline-offset: 3px;
+}
+
+button:disabled,
+input:disabled {
+  opacity: 0.78;
+}
+
+::selection {
+  color: #172a45;
+  background: #efd89e;
+}
