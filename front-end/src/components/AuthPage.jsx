@@ -97,13 +97,12 @@ export default function AuthPage({ mode, onLoginSuccess, allowedDomain = '@stude
   return (
     <main className="auth-layout">
       <section className="auth-aside">
-        <div className="aside-decoration" aria-hidden="true">✳</div>
         <span className="eyebrow">YOUR NEXT SKILL STARTS HERE</span>
         <h1>{isRegister ? 'Make room for a new kind of learning.' : 'Welcome back to your campus.'}</h1>
         <p>{isRegister
           ? 'A community where everyone has something to teach and something to learn.'
           : 'Pick up where curiosity left off. Your campus community is here.'}</p>
-        <div className="aside-note"><span aria-hidden="true">✦</span> Learning is better together.</div>
+        <div className="aside-note">Learning is better together.</div>
       </section>
       <section className="auth-panel">
         <a className="back-link" href="/">← <span>Back to home</span></a>
@@ -128,7 +127,7 @@ export default function AuthPage({ mode, onLoginSuccess, allowedDomain = '@stude
                 name="name"
                 type="text"
                 autoComplete="name"
-                placeholder="e.g. Tirth Chaudhari"
+                placeholder="e.g. Username"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -144,7 +143,7 @@ export default function AuthPage({ mode, onLoginSuccess, allowedDomain = '@stude
               name="email"
               type="email"
               autoComplete="email"
-              placeholder="you@university.edu"
+              placeholder="University Email Id"
               value={formData.email}
               onChange={handleChange}
               required

@@ -1,22 +1,108 @@
-:root {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  color: #24354e;
-  background: #fffefa;
+:root,
+[data-theme="light"] {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-optical-sizing: auto;
 
-  --navy: #1c2f4b;
-  --blue: #315f98;
-  --blue-dark: #254d7f;
-  --blue-wash: #f3f6f9;
-  --paper: #fffefa;
-  --line: #e8e9e6;
-  --ink-soft: #68758b;
+  /* Brand Colors */
+  --navy: #14243b;
+  --navy-dark: #0d1929;
+  --navy-light: #1e3556;
+  --blue: #235691;
+  --blue-dark: #19406e;
+  --blue-light: #eff6ff;
+  --blue-wash: #f1f5f9;
+
+  /* Surfaces & Backgrounds */
+  --paper: #ffffff;
+  --paper-muted: #f8fafc;
+  --bg-page: #f8fafc;
+  --line: #e2e8f0;
+  --line-strong: #cbd5e1;
+
+  /* Text & Inks */
+  --ink-primary: #0f172a;
+  --ink-secondary: #334155;
+  --ink-soft: #64748b;
+  --ink-muted: #94a3b8;
+
+  /* Accents & Semantics */
+  --gold-accent: #b47818;
+  --gold-wash: #fef9ee;
+  --success: #15803d;
+  --success-bg: #f0fdf4;
+  --success-border: #bbf7d0;
+  --danger: #b91c1c;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+
+  /* Radii & Shadows */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 4px 14px rgba(15, 23, 42, 0.08);
+
+  /* Theme Toggle Control */
+  --toggle-track-bg: #e2e8f0;
+  --toggle-track-border: #cbd5e1;
+  --toggle-thumb-bg: #ffffff;
+  --toggle-thumb-color: #b47818;
+
+  /* Typography */
   --serif: Georgia, 'Times New Roman', serif;
-  --sans: 'Segoe UI', Arial, sans-serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+  /* Brand Colors in Dark Mode */
+  --navy: #091322;
+  --navy-dark: #050b14;
+  --navy-light: #15253e;
+  --blue: #3b82f6;
+  --blue-dark: #2563eb;
+  --blue-light: rgba(59, 130, 246, 0.15);
+  --blue-wash: #122037;
+
+  /* Surfaces & Backgrounds */
+  --paper: #111e33;
+  --paper-muted: #172844;
+  --bg-page: #0a1220;
+  --line: #1e314f;
+  --line-strong: #2c446c;
+
+  /* Text & Inks */
+  --ink-primary: #f8fafc;
+  --ink-secondary: #cbd5e1;
+  --ink-soft: #94a3b8;
+  --ink-muted: #64748b;
+
+  /* Accents & Semantics */
+  --gold-accent: #f59e0b;
+  --gold-wash: rgba(245, 158, 11, 0.14);
+  --success: #22c55e;
+  --success-bg: rgba(34, 197, 94, 0.14);
+  --success-border: rgba(34, 197, 94, 0.32);
+  --danger: #ef4444;
+  --danger-bg: rgba(239, 68, 68, 0.14);
+  --danger-border: rgba(239, 68, 68, 0.32);
+
+  /* Radii & Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.5);
+
+  /* Theme Toggle Control */
+  --toggle-track-bg: #1e314f;
+  --toggle-track-border: #2c446c;
+  --toggle-thumb-bg: #2563eb;
+  --toggle-thumb-color: #ffffff;
 }
 
 * {
@@ -32,11 +118,25 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  background: var(--bg-page);
+  color: var(--ink-primary);
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
 }
 
 button,
@@ -46,17 +146,22 @@ a {
 
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
-  outline: 3px solid #e1ad4f;
-  outline-offset: 3px;
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }
 
 button:disabled,
-input:disabled {
-  opacity: 0.78;
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
 
 ::selection {
-  color: #172a45;
-  background: #efd89e;
+  color: #0f172a;
+  background: #bfdbfe;
 }

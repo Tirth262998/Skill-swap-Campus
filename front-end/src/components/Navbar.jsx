@@ -1,4 +1,5 @@
 import Brand from './Brand'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navbar({ page, user, onLogout }) {
   const isAppPage = page === 'dashboard' || page === 'profile'
@@ -12,6 +13,7 @@ export default function Navbar({ page, user, onLogout }) {
           <>
             <a className={page === 'dashboard' ? 'nav-active' : ''} href="/dashboard">Dashboard</a>
             <a className={page === 'profile' ? 'nav-active' : ''} href="/profile">Profile</a>
+            <ThemeToggle />
             <button className="button button-quiet button-small" type="button" onClick={onLogout}>
               Log out
             </button>
@@ -20,6 +22,7 @@ export default function Navbar({ page, user, onLogout }) {
           <>
             <a href="#how-it-works">How it works</a>
             <a className="nav-login" href="/login">Log in</a>
+            <ThemeToggle />
             <a className="button button-primary button-small" href="/register">Join the campus</a>
           </>
         )}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import AppShell from '../components/AppShell'
 import { apiCall } from '../services/api'
+import { UserIcon } from '../components/Icons'
 
 export default function Profile({ user, profile, onLogout, onProfileUpdated }) {
   const [formData, setFormData] = useState({
@@ -117,7 +118,9 @@ export default function Profile({ user, profile, onLogout, onProfileUpdated }) {
 
       {fetching ? (
         <section className="profile-placeholder">
-          <div className="profile-placeholder-icon" aria-hidden="true">◉</div>
+          <div className="profile-placeholder-icon" aria-hidden="true">
+            <UserIcon size={26} />
+          </div>
           <h2>Loading profile...</h2>
         </section>
       ) : (
@@ -129,8 +132,8 @@ export default function Profile({ user, profile, onLogout, onProfileUpdated }) {
                 {isExisting ? 'Edit Your Profile' : 'Create Your Profile'}
               </h2>
             </div>
-            <div className="profile-placeholder-icon" style={{ margin: 0, width: '45px', height: '45px', fontSize: '22px' }}>
-              ◉
+            <div className="profile-placeholder-icon" style={{ margin: 0, width: '45px', height: '45px' }}>
+              <UserIcon size={22} />
             </div>
           </div>
 

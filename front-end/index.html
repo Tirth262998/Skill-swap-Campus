@@ -6,6 +6,20 @@
     <meta name="theme-color" content="#1c2f4b" />
     <meta name="description" content="SkillSwap Campus — peer-to-peer campus skill exchange." />
     <title>SkillSwap Campus</title>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('skillswap-theme');
+          var legacy = localStorage.getItem('theme');
+          var theme = saved === 'dark' || saved === 'light' ? saved : (legacy === 'dark' ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

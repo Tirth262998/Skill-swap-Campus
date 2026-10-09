@@ -1,4 +1,5 @@
 import AppShell from '../components/AppShell'
+import { CheckIcon, SkillsIcon } from '../components/Icons'
 
 export default function Dashboard({ user, profile, onLogout }) {
   const isProfileComplete = Boolean(user?.profileCompleted || profile)
@@ -7,9 +8,10 @@ export default function Dashboard({ user, profile, onLogout }) {
     <AppShell page="dashboard" user={user} onLogout={onLogout}>
       <div className="page-intro">
         <span className="eyebrow">YOUR CAMPUS, YOUR COMMUNITY</span>
-        <h1>Welcome, {user?.name || 'Student'}<span className="wave">✳</span></h1>
+        <h1>Welcome, {user?.name || 'Student'}</h1>
         <p>Your learning journey begins with the people around you.</p>
       </div>
+
       <div className="dashboard-grid">
         <section className="welcome-card">
           <div className="welcome-copy">
@@ -20,7 +22,6 @@ export default function Dashboard({ user, profile, onLogout }) {
               {isProfileComplete ? 'Edit your profile' : 'Create profile'} <span aria-hidden="true">→</span>
             </a>
           </div>
-          <div className="welcome-decoration" aria-hidden="true"><span>✳</span><i>✦</i></div>
         </section>
 
         <section className="completion-card">
@@ -29,14 +30,17 @@ export default function Dashboard({ user, profile, onLogout }) {
               <span className="card-kicker">YOUR PROFILE</span>
               <h2>Profile Status</h2>
             </div>
-            <span className="completion-icon" aria-hidden="true">
-              {isProfileComplete ? '✓' : '◌'}
+            <span
+              className={`completion-icon ${isProfileComplete ? 'completion-icon-done' : 'completion-icon-pending'}`}
+              aria-hidden="true"
+            >
+              {isProfileComplete ? <CheckIcon size={18} /> : <span className="pending-dot" />}
             </span>
           </div>
 
           <div className="progress-label">
             <span>Profile completion</span>
-            <span style={{ color: isProfileComplete ? '#2e7d32' : '#9b7a3d' }}>
+            <span style={{ color: isProfileComplete ? '#1e7e45' : '#b27715', fontWeight: 650 }}>
               {isProfileComplete ? 'Complete' : 'Incomplete'}
             </span>
           </div>
@@ -49,10 +53,12 @@ export default function Dashboard({ user, profile, onLogout }) {
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            <span style={{
-              width: isProfileComplete ? '100%' : '33%',
-              background: isProfileComplete ? '#2e7d32' : '#d1a047'
-            }} />
+            <span
+              style={{
+                width: isProfileComplete ? '100%' : '33%',
+                background: isProfileComplete ? '#1e7e45' : '#c88f28',
+              }}
+            />
           </div>
 
           <p>
@@ -67,13 +73,17 @@ export default function Dashboard({ user, profile, onLogout }) {
       </div>
 
       <section className="next-step-card">
-        <div className="next-step-icon" aria-hidden="true">✦</div>
+        <div className="next-step-icon" aria-hidden="true">
+          <SkillsIcon size={20} />
+        </div>
         <div className="next-step-copy">
           <span className="card-kicker">YOUR NEXT STEP</span>
-          <h2>Add your skills</h2>
-          <p>Skills management will be connected in Phase 3.</p>
+          <h2>Manage your skills</h2>
+          <p>Add the skills you can teach and the ones you want to learn.</p>
         </div>
-        <button className="button button-disabled" type="button" disabled>Add skills <span aria-hidden="true">→</span></button>
+        <a className="button button-primary button-small" href="/skills">
+          Manage skills <span aria-hidden="true">→</span>
+        </a>
       </section>
     </AppShell>
   )

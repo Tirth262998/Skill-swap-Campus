@@ -6,8 +6,8 @@ export default function NotFound({ user, onLogout }) {
       <Navbar page="notFound" user={user} onLogout={onLogout} />
       <main className="not-found">
         <span className="eyebrow">PAGE NOT FOUND</span>
-        <h1>This page is not part of Week 1.</h1>
-        <p>That section may be added in a future phase.</p>
+        <h1>Oops! Page not found.</h1>
+        <p>The page you are looking for does not exist or has been moved.</p>
         <a className="button button-primary" href="/">Back to home</a>
       </main>
     </>

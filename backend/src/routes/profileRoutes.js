@@ -80,8 +80,8 @@ const updateValidation = [
 
     body("year")
         .optional()
-        .isInt({ min: 1, max: 6 })
-        .withMessage("Year must be a number between 1 and 6"),
+        .isInt({ min: 1, max: 4 })
+        .withMessage("Year must be a number between 1 and 4"),
 
     ...optionalFieldValidators,
 ];

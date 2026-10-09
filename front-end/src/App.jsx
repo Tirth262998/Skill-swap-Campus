@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
+import Skills from './pages/Skills'
 import NotFound from './pages/NotFound'
 
 const pageFromPath = () => {
@@ -15,6 +16,7 @@ const pageFromPath = () => {
   if (path === '/login') return 'login'
   if (path === '/dashboard') return 'dashboard'
   if (path === '/profile') return 'profile'
+  if (path === '/skills') return 'skills'
   return 'notFound'
 }
 
@@ -24,7 +26,7 @@ function App() {
   const [profile, setProfile] = useState(null)
   const [authLoading, setAuthLoading] = useState(true)
 
-  // Check authenticated session on load
+
   useEffect(() => {
     let isMounted = true
     const checkAuth = async () => {
@@ -35,7 +37,7 @@ function App() {
 
       if (res.success && res.data.user) {
         setUser(res.data.user)
-        // Also fetch profile if authenticated
+        
         const profRes = await apiCall('/profile', { method: 'GET' })
         if (isMounted && profRes.success && profRes.data.profile) {
           setProfile(profRes.data.profile)
@@ -51,10 +53,10 @@ function App() {
     return () => { isMounted = false }
   }, [])
 
-  // Redirect protection once auth check completes
+ 
   useEffect(() => {
     if (!authLoading) {
-      if ((page === 'dashboard' || page === 'profile') && !user) {
+      if ((page === 'dashboard' || page === 'profile' || page === 'skills') && !user) {
         window.location.href = '/login'
       } else if ((page === 'login' || page === 'register') && user) {
         window.location.href = '/dashboard'
@@ -78,9 +80,9 @@ function App() {
     setUser((prev) => prev ? { ...prev, profileCompleted: true, name: profileData.name, department: profileData.department, year: profileData.year } : null)
   }
 
-  if (authLoading && (page === 'dashboard' || page === 'profile')) {
+  if (authLoading && (page === 'dashboard' || page === 'profile' || page === 'skills')) {
     return (
-      <div style={{ display: 'grid', placeItems: 'center', minHeight: '100vh', background: '#f5f7fa', color: '#63718a' }}>
+      <div style={{ display: 'grid', placeItems: 'center', minHeight: '100vh', background: 'var(--bg-page)', color: 'var(--ink-soft)' }}>
         <p>Checking session...</p>
       </div>
     )
@@ -107,6 +109,10 @@ function App() {
         onProfileUpdated={handleProfileUpdated}
       />
     )
+  }
+
+  if (page === 'skills') {
+    return <Skills user={user} onLogout={handleLogout} />
   }
 
   if (page === 'notFound') {
