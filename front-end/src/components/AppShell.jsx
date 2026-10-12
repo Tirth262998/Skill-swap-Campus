@@ -23,6 +23,7 @@ export default function AppShell({ children, page, user, onLogout }) {
             <a className={page === 'dashboard' ? 'mobile-nav-active' : ''} href="/dashboard">Dashboard</a>
             <a className={page === 'profile' ? 'mobile-nav-active' : ''} href="/profile">Profile</a>
             <a className={page === 'skills' ? 'mobile-nav-active' : ''} href="/skills">Skills</a>
+            <a className={page === 'discover' ? 'mobile-nav-active' : ''} href="/discover">Discover</a>
           </nav>
         </header>
         <main className="dashboard-content">{children}</main>

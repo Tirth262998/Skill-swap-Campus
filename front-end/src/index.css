@@ -1,8 +1,8 @@
 :root,
 [data-theme="light"] {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  color: #0f172a;
-  background: #f8fafc;
+  font-family: var(--sans);
+  color: #29243b;
+  background: #fbfaff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -10,30 +10,30 @@
   font-optical-sizing: auto;
 
   /* Brand Colors */
-  --navy: #14243b;
-  --navy-dark: #0d1929;
-  --navy-light: #1e3556;
-  --blue: #235691;
-  --blue-dark: #19406e;
-  --blue-light: #eff6ff;
-  --blue-wash: #f1f5f9;
+  --navy: #29243b;
+  --navy-dark: #201b32;
+  --navy-light: #40365f;
+  --blue: #7659df;
+  --blue-dark: #6246c7;
+  --blue-light: #f0ecff;
+  --blue-wash: #f6f3ff;
 
   /* Surfaces & Backgrounds */
   --paper: #ffffff;
-  --paper-muted: #f8fafc;
-  --bg-page: #f8fafc;
-  --line: #e2e8f0;
-  --line-strong: #cbd5e1;
+  --paper-muted: #f7f5fc;
+  --bg-page: #fbfaff;
+  --line: #e9e5f1;
+  --line-strong: #d8d1e6;
 
   /* Text & Inks */
-  --ink-primary: #0f172a;
-  --ink-secondary: #334155;
-  --ink-soft: #64748b;
-  --ink-muted: #94a3b8;
+  --ink-primary: #29243b;
+  --ink-secondary: #514b61;
+  --ink-soft: #777184;
+  --ink-muted: #a29cad;
 
   /* Accents & Semantics */
-  --gold-accent: #b47818;
-  --gold-wash: #fef9ee;
+  --gold-accent: #b87923;
+  --gold-wash: #fff7e9;
   --success: #15803d;
   --success-bg: #f0fdf4;
   --success-border: #bbf7d0;
@@ -45,15 +45,15 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-hover: 0 4px 14px rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 2px 8px rgba(41, 36, 59, 0.045);
+  --shadow-card: 0 10px 30px rgba(41, 36, 59, 0.07), 0 2px 8px rgba(41, 36, 59, 0.035);
+  --shadow-hover: 0 18px 42px rgba(74, 57, 123, 0.13);
 
   /* Theme Toggle Control */
-  --toggle-track-bg: #e2e8f0;
-  --toggle-track-border: #cbd5e1;
+  --toggle-track-bg: #f1eef8;
+  --toggle-track-border: #e1dced;
   --toggle-thumb-bg: #ffffff;
-  --toggle-thumb-color: #b47818;
+  --toggle-thumb-color: #7659df;
 
   /* Typography */
   --serif: Georgia, 'Times New Roman', serif;
@@ -61,47 +61,47 @@
 }
 
 [data-theme="dark"] {
-  /* Brand Colors in Dark Mode */
-  --navy: #091322;
-  --navy-dark: #050b14;
-  --navy-light: #15253e;
-  --blue: #3b82f6;
-  --blue-dark: #2563eb;
-  --blue-light: rgba(59, 130, 246, 0.15);
-  --blue-wash: #122037;
+  /* Charcoal surfaces with a vivid violet accent. */
+  --navy: #f5f3fb;
+  --navy-dark: #111114;
+  --navy-light: #24232a;
+  --blue: #9278ff;
+  --blue-dark: #7959f5;
+  --blue-light: rgba(146, 120, 255, 0.16);
+  --blue-wash: #242033;
 
   /* Surfaces & Backgrounds */
-  --paper: #111e33;
-  --paper-muted: #172844;
-  --bg-page: #0a1220;
-  --line: #1e314f;
-  --line-strong: #2c446c;
+  --paper: #25232b;
+  --paper-muted: #2c2933;
+  --bg-page: #1b1a21;
+  --line: #393641;
+  --line-strong: #504b5b;
 
   /* Text & Inks */
-  --ink-primary: #f8fafc;
-  --ink-secondary: #cbd5e1;
-  --ink-soft: #94a3b8;
-  --ink-muted: #64748b;
+  --ink-primary: #f5f3fb;
+  --ink-secondary: #cbc7d4;
+  --ink-soft: #a29cac;
+  --ink-muted: #777180;
 
   /* Accents & Semantics */
-  --gold-accent: #f59e0b;
-  --gold-wash: rgba(245, 158, 11, 0.14);
+  --gold-accent: #e9bd62;
+  --gold-wash: rgba(233, 189, 98, 0.14);
   --success: #22c55e;
-  --success-bg: rgba(34, 197, 94, 0.14);
-  --success-border: rgba(34, 197, 94, 0.32);
-  --danger: #ef4444;
-  --danger-bg: rgba(239, 68, 68, 0.14);
-  --danger-border: rgba(239, 68, 68, 0.32);
+  --success-bg: rgba(34, 197, 94, 0.12);
+  --success-border: rgba(34, 197, 94, 0.28);
+  --danger: #ff8188;
+  --danger-bg: rgba(255, 91, 105, 0.12);
+  --danger-border: rgba(255, 91, 105, 0.3);
 
   /* Radii & Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.25);
-  --shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.16);
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.17);
+  --shadow-hover: 0 18px 42px rgba(0, 0, 0, 0.26);
 
   /* Theme Toggle Control */
-  --toggle-track-bg: #1e314f;
-  --toggle-track-border: #2c446c;
-  --toggle-thumb-bg: #2563eb;
+  --toggle-track-bg: #302d38;
+  --toggle-track-border: #504b5b;
+  --toggle-thumb-bg: #7959f5;
   --toggle-thumb-color: #ffffff;
 }
 
@@ -164,4 +164,9 @@ textarea:disabled {
 ::selection {
   color: #0f172a;
   background: #bfdbfe;
+}
+
+[data-theme="dark"] ::selection {
+  color: #ffffff;
+  background: #6549c9;
 }

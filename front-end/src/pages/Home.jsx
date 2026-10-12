@@ -22,43 +22,54 @@ export default function Home({ user, onLogout }) {
             <p className="hero-footnote">Made for students, powered by each other.</p>
           </div>
 
-          <div className="hero-art" aria-label="Illustration of students exchanging skills" role="img">
-            <div className="skill-visual">
-              <div className="connection-line connection-left" aria-hidden="true" />
-              <div className="connection-line connection-right" aria-hidden="true" />
-
-              <div className="student-card student-card-left">
-                <div className="student-header">
-                  <div className="avatar avatar-blue">A</div>
-                  <div>
-                    <p className="student-name">Aarav</p>
-                    <span className="student-role">Java • CSE</span>
-                  </div>
-                </div>
-                <div className="skill-stack">
-                  <span className="skill-tag skill-tag-primary">Java</span>
-                  <span className="skill-tag skill-tag-soft">Mentoring</span>
-                </div>
-                <p className="student-note">Can teach</p>
+          <div className="hero-art" aria-label="A campus network connecting students through skill exchange" role="img">
+            <div className="campus-visual">
+              <div className="campus-visual-heading">
+                <span className="campus-visual-brand"><span className="campus-brand-glyph">S</span> SKILLSWAP <i>·</i> CAMPUS</span>
+                <span className="campus-visual-live"><span /> NETWORK LIVE</span>
               </div>
 
-              <div className="match-badge">
-                <span>Match</span>
+              <div className="campus-network">
+                <svg className="network-lines" viewBox="0 0 480 310" fill="none" aria-hidden="true">
+                  <path d="M240 145 102 62M240 145 378 62M240 145 102 248M240 145 378 248" />
+                  <circle cx="102" cy="62" r="4" />
+                  <circle cx="378" cy="62" r="4" />
+                  <circle cx="102" cy="248" r="4" />
+                  <circle cx="378" cy="248" r="4" />
+                </svg>
+
+                <div className="network-skill network-skill-java">
+                  <span className="network-skill-icon">01</span>
+                  <span><small>CAN TEACH</small><strong>Java mentoring</strong></span>
+                </div>
+                <div className="network-skill network-skill-design">
+                  <span className="network-skill-icon">02</span>
+                  <span><small>WANTS TO LEARN</small><strong>UI/UX design</strong></span>
+                </div>
+                <div className="network-skill network-skill-photo">
+                  <span className="network-skill-icon">03</span>
+                  <span><small>ALSO SHARED</small><strong>Photography</strong></span>
+                </div>
+                <div className="network-skill network-skill-code">
+                  <span className="network-skill-icon">04</span>
+                  <span><small>ALSO LEARNING</small><strong>Web development</strong></span>
+                </div>
+
+                <div className="campus-hub">
+                  <span className="campus-hub-icon" aria-hidden="true"><BookOpenIcon size={23} /></span>
+                  <strong>SKILL<br />EXCHANGE</strong>
+                  <span className="campus-hub-people">
+                    <span className="network-avatar network-avatar-purple">A</span>
+                    <span className="network-avatar network-avatar-amber">M</span>
+                    <span>Aarav <i>×</i> Mira</span>
+                  </span>
+                  <span className="campus-hub-caption">YOUR CAMPUS</span>
+                </div>
               </div>
 
-              <div className="student-card student-card-right">
-                <div className="student-header">
-                  <div className="avatar avatar-gold">M</div>
-                  <div>
-                    <p className="student-name">Mira</p>
-                    <span className="student-role">UI/UX • Design</span>
-                  </div>
-                </div>
-                <div className="skill-stack">
-                  <span className="skill-tag skill-tag-accent">UI/UX</span>
-                  <span className="skill-tag skill-tag-soft">Design</span>
-                </div>
-                <p className="student-note">Wants to learn</p>
+              <div className="campus-visual-footer">
+                <span><i /> 2 students connected</span>
+                <span className="campus-visual-exchange">KNOWLEDGE GOES BOTH WAYS <b>↗</b></span>
               </div>
             </div>
           </div>

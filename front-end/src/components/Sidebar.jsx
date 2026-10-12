@@ -25,14 +25,12 @@ export default function Sidebar({ page }) {
           </span>
           Skills
         </a>
-
-        <span className="side-label side-label-later">COMING LATER</span>
-        <span className="side-link side-disabled" aria-disabled="true">
+        <a className={page === 'discover' ? 'side-link side-active' : 'side-link'} href="/discover">
           <span className="side-icon-wrap" aria-hidden="true">
             <DiscoverIcon size={16} />
           </span>
           Discover
-        </span>
+        </a>
       </nav>
 
       <div className="sidebar-bottom">
