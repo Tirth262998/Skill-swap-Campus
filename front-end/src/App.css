@@ -3109,3 +3109,569 @@
     padding: 16px;
   }
 }
+
+.discover-directory {
+  margin-top: 26px;
+}
+
+.discover-filter {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+  color: var(--ink-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.discover-filter input,
+.discover-filter select {
+  width: 100%;
+  min-height: 40px;
+  box-sizing: border-box;
+  padding: 0 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: var(--paper);
+  color: var(--ink-primary);
+  font: inherit;
+  font-weight: 400;
+}
+
+.discover-filter input:focus,
+.discover-filter select:focus {
+  outline: 2px solid rgba(76, 105, 214, 0.2);
+  border-color: var(--blue);
+}
+
+.discover-search-row {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.discover-smart-search {
+  min-width: 0;
+  min-height: 52px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  box-shadow: var(--shadow-card);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.discover-smart-search:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(76, 105, 214, 0.14), var(--shadow-card);
+}
+
+.discover-smart-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink-primary);
+  font: inherit;
+  font-size: 14px;
+}
+
+.discover-smart-search input::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+
+.discover-search-clear,
+.discover-popover-close {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.discover-search-clear:hover,
+.discover-popover-close:hover {
+  background: var(--paper-muted);
+  color: var(--ink-primary);
+}
+
+.discover-filter-anchor {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.discover-filter-toggle {
+  height: 100%;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 17px;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink-primary);
+  box-shadow: var(--shadow-card);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.discover-filter-toggle:hover,
+.discover-filter-toggle.is-open {
+  border-color: var(--blue);
+  background: var(--paper-muted);
+}
+
+.discover-filter-toggle:focus-visible,
+.discover-filter-chip:focus-visible,
+.discover-clear-filters:focus-visible,
+.discover-search-clear:focus-visible,
+.discover-popover-close:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.discover-filter-chevron {
+  font-size: 16px;
+}
+
+.discover-filter-popover {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 10px);
+  right: 0;
+  width: min(340px, calc(100vw - 32px));
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink-primary);
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.17);
+  animation: discover-popover-enter 140ms ease-out;
+}
+
+@keyframes discover-popover-enter {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.discover-popover-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--navy);
+  font-size: 14px;
+}
+
+.discover-filter small {
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.discover-filter-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 3px;
+}
+
+.discover-active-filters {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.discover-filter-chip {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-muted);
+  color: var(--ink-secondary);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.discover-filter-chip span {
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+.discover-filter-chip:hover {
+  border-color: var(--blue);
+  color: var(--ink-primary);
+}
+
+.discover-clear-filters {
+  min-height: 30px;
+  padding: 0 5px;
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.discover-clear-filters:hover {
+  text-decoration: underline;
+}
+
+.discover-results-heading {
+  margin: 28px 0 8px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.discover-results-heading h2,
+.student-profile-card h2 {
+  margin: 5px 0 0;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.discover-result-count,
+.discover-viewer-context {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.discover-viewer-context {
+  margin: 0 0 13px;
+}
+
+.discover-student-list {
+  max-height: min(70vh, 820px);
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+  padding: 2px 2px 8px;
+  scrollbar-gutter: stable;
+}
+
+.discover-student-card,
+.student-profile-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+
+.discover-student-main {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.discover-avatar-link {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.discover-avatar {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.discover-avatar-initials {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.discover-student-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.discover-student-name {
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.discover-student-name:hover,
+.discover-back-link:hover {
+  color: var(--blue);
+}
+
+.discover-student-info p,
+.student-profile-heading p {
+  margin: 5px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.discover-availability {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--ink-secondary);
+  font-size: 11px;
+}
+
+.discover-student-bio,
+.student-profile-bio {
+  margin: 14px 0;
+  color: var(--ink-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.discover-skill-columns,
+.student-profile-skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.discover-skill-columns > div,
+.student-profile-skills > section {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--paper-muted);
+}
+
+.discover-skill-columns span {
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.discover-skill-columns p,
+.student-profile-skills p {
+  margin: 6px 0 0;
+  color: var(--ink-primary);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.discover-card-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.discover-request-error {
+  margin: 12px 0 0;
+  color: var(--danger);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.discover-state {
+  min-height: 170px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 12px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.discover-state h3,
+.discover-state h2,
+.discover-state p {
+  margin: 0;
+}
+
+.discover-state h3,
+.discover-state h2 {
+  color: var(--navy);
+  font-size: 16px;
+}
+
+.discover-state p {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.discover-pagination {
+  margin: 18px 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--ink-secondary);
+  font-size: 12px;
+}
+
+.discover-back-link {
+  display: inline-block;
+  margin: 3px 0 16px;
+  color: var(--ink-secondary);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.student-profile-card {
+  margin-top: 8px;
+  padding: 26px;
+}
+
+.student-profile-heading {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.student-profile-heading > div {
+  flex: 1;
+}
+
+.student-profile-heading h2 {
+  margin-top: 6px;
+}
+
+.student-profile-avatar {
+  width: 72px;
+  height: 72px;
+  font-size: 19px;
+}
+
+.student-profile-bio {
+  margin-top: 22px;
+  font-size: 14px;
+}
+
+.student-profile-skills {
+  margin: 22px 0;
+}
+
+.student-profile-skills h3 {
+  margin: 6px 0 0;
+  color: var(--navy);
+  font-size: 14px;
+}
+
+.student-profile-skills ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--ink-primary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 820px) {
+  .discover-student-list {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .discover-search-row {
+    gap: 8px;
+  }
+
+  .discover-smart-search {
+    min-height: 48px;
+    gap: 8px;
+    padding: 0 11px;
+  }
+
+  .discover-smart-search input {
+    font-size: 12px;
+  }
+
+  .discover-filter-toggle {
+    min-height: 48px;
+    gap: 6px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .discover-filter-popover {
+    right: -1px;
+    padding: 15px;
+  }
+
+  .discover-student-card,
+  .student-profile-card {
+    padding: 16px;
+  }
+
+  .discover-student-main {
+    gap: 9px;
+  }
+
+  .discover-avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .discover-skill-columns,
+  .student-profile-skills {
+    grid-template-columns: 1fr;
+  }
+
+  .discover-card-actions {
+    justify-content: stretch;
+  }
+
+  .discover-card-actions > * {
+    flex: 1;
+    padding-inline: 8px;
+  }
+
+  .student-profile-heading {
+    gap: 10px;
+  }
+
+  .student-profile-avatar {
+    width: 52px;
+    height: 52px;
+  }
+}
