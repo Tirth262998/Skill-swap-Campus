@@ -10,6 +10,7 @@ import Skills from './pages/Skills'
 import NotFound from './pages/NotFound'
 import Discover from './pages/Discover'
 import StudentProfile from './pages/StudentProfile'
+import Requests from './pages/RequestManagement'
 
 const pageFromPath = () => {
   const path = window.location.pathname.replace(/\/+$/, '') || '/'
@@ -20,6 +21,7 @@ const pageFromPath = () => {
   if (path === '/profile') return 'profile'
   if (path === '/skills') return 'skills'
   if (path === '/discover') return 'discover'
+  if (path === '/requests') return 'requests'
   if (/^\/students\/[^/]+$/.test(path)) return 'student-profile'
   return 'notFound'
 }
@@ -60,7 +62,7 @@ function App() {
  
   useEffect(() => {
     if (!authLoading) {
-      if (['dashboard', 'profile', 'skills', 'discover', 'student-profile'].includes(page) && !user) {
+      if (['dashboard', 'profile', 'skills', 'discover', 'student-profile', 'requests'].includes(page) && !user) {
         window.location.href = '/login'
       } else if ((page === 'login' || page === 'register') && user) {
         window.location.href = '/dashboard'
@@ -84,7 +86,7 @@ function App() {
     setUser((prev) => prev ? { ...prev, profileCompleted: true, name: profileData.name, department: profileData.department, year: profileData.year } : null)
   }
 
-  if (authLoading && ['dashboard', 'profile', 'skills', 'discover', 'student-profile'].includes(page)) {
+  if (authLoading && ['dashboard', 'profile', 'skills', 'discover', 'student-profile', 'requests'].includes(page)) {
     return (
       <div style={{ display: 'grid', placeItems: 'center', minHeight: '100vh', background: 'var(--bg-page)', color: 'var(--ink-soft)' }}>
         <p>Checking session...</p>
@@ -121,6 +123,10 @@ function App() {
 
   if (page === 'discover') {
     return <Discover user={user} onLogout={handleLogout} />
+  }
+
+  if (page === 'requests') {
+    return <Requests user={user} onLogout={handleLogout} />
   }
 
   if (page === 'student-profile') {

@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const REQUEST_EXPIRY_DAYS = 10;
+
 const exchangeRequestSchema = new mongoose.Schema(
     {
         senderId: {
@@ -29,13 +31,24 @@ const exchangeRequestSchema = new mongoose.Schema(
         },
         status: {
             type: String,
-            enum: ["pending"],
+            enum: ["pending", "accepted", "rejected", "expired"],
             default: "pending",
             required: true,
+        },
+        expirationAt: {
+            type: Date,
+            required: false,
         },
     },
     { timestamps: true }
 );
+
+exchangeRequestSchema.pre("save", function setExpirationDate() {
+    if (!this.expirationAt && this.status === "pending") {
+        const created = this.createdAt || new Date();
+        this.expirationAt = new Date(created.getTime() + REQUEST_EXPIRY_DAYS * 24 * 60 * 60 * 1000);
+    }
+});
 
 exchangeRequestSchema.index(
     { participantLow: 1, participantHigh: 1 },
@@ -44,5 +57,7 @@ exchangeRequestSchema.index(
         partialFilterExpression: { status: "pending" },
     }
 );
+
+exchangeRequestSchema.index({ status: 1, expirationAt: 1 });
 
 module.exports = mongoose.model("ExchangeRequest", exchangeRequestSchema);

@@ -31,6 +31,12 @@ export default function Sidebar({ page }) {
           </span>
           Discover
         </a>
+        <a className={page === 'requests' ? 'side-link side-active' : 'side-link'} href="/requests">
+          <span className="side-icon-wrap" aria-hidden="true">
+            <DiscoverIcon size={16} />
+          </span>
+          Requests
+        </a>
       </nav>
 
       <div className="sidebar-bottom">
